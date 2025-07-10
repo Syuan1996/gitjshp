@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link rel="stylesheet" href="./vendors/slick/slick.css">
+    <link rel="stylesheet" href="./vendors/slick/slick-theme.css">
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        /* .slick-slide {
+
+        } */
+
+        body {
+            margin: 0;
+        }
+
+
+        div.myclass {
+            /* border: 1px solid #ec2f2f; */
+        }
+
+        div.slick-slide {
+            /* border: 1px solid #0072f5; */
+            padding: 0 1px;
+
+        }
+
+        div.slick-slide img {
+            width: 100%;
+        }
+
+        button.slick-prev {
+            left: 10px;
+            z-index: 1;
+        }
+
+        button.slick-next {
+            right: 10px;
+        }
+    </style>
+
+
+</head>
+
+<body>
+    <div class="myclass">
+        <div>
+            <a href="https://tw.yahoo.com">
+                <img src="https://picsum.photos/id/238/1400/600">
+            </a>
+        </div>
+        <div><img src="https://picsum.photos/id/239/1400/600"></div>
+        <div><img src="https://picsum.photos/id/240/1400/600"></div>
+        <div><img src="https://picsum.photos/id/241/1400/600"></div>
+        <div><img src="https://picsum.photos/id/242/1400/600"></div>
+        <div><img src="https://picsum.photos/id/243/1400/600"></div>
+        <div><img src="https://picsum.photos/id/244/1400/600"></div>
+    </div>
+
+    <script src="./vendors/jquery/jquery-3.7.1.min.js"></script>
+    <script src="./vendors/slick/slick.min.js"></script>
+
+    <script>
+        $(function () {
+            $('.myclass').slick({
+                arrows: true,
+                dots: true,
+                centerMode: true,
+                centerPadding: "60px",
+                slidesToShow: 3,
+                responsive: [
+                    {
+                        breakpoint: 768,
+                        settings: {
+                            arrows: false,
+                            centerPadding: "0px",
+                            slidesToShow: 1,
+                        }
+                    }
+
+                ]
+            });
+
+        })
+    </script>
+</body>
+
+</html>

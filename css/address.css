@@ -1,0 +1,65 @@
+* {
+    box-sizing: border-box;
+}
+
+form.my_form {
+    width: 500px;
+    margin: 0 auto;
+    border: 1px solid lightgray;
+    background-color: #f1f1f1;
+    padding: 10px;
+    border-radius: 10px;
+}
+
+form.my_form>div.block {
+    display: flex;
+}
+
+form.my_form>div.block>label {
+    width: 100px;
+    text-align: right;
+    flex-shrink: 0;
+    position: relative;
+    top: 2px;
+    display: inline-block;
+}
+
+form.my_form>div.block>div.input_group {
+    flex-grow: 1;
+}
+
+form.my_form input#zipcode {
+    width: 40px;
+}
+
+form.my_form input.text {
+    border-radius: 3px;
+    border: 1px solid lightgray;
+    font-size: 16px;
+    padding: 0 5px;
+    height: 28px;
+}
+
+form.my_form div.input_group div.addr_block {
+    display: flex;
+}
+
+form.my_form select,
+form.my_form input.addr {
+    border-radius: 3px;
+    border: 1px solid lightgray;
+    font-size: 16px;
+    padding: 0 5px;
+    height: 28px;
+    border-right: 0;
+    border-radius: 0;
+}
+
+form.my_form input.addr {
+    border-radius: 3px 0 0 3px;
+}
+
+form.my_form select:last-child {
+    border-right: 1px solid lightgray;
+    border-radius: 0 3px 3px 0;
+}

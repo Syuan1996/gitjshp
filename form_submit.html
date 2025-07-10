@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        span.hint {
+            color: red;
+            display: none;
+        }
+
+        div.input_group.error span.hint {
+            display: inline-block;
+        }
+    </style>
+</head>
+
+<body>
+    <form action="https://tw.yahoo.com" method="get" id="myform">
+
+        <div class="input_group">
+            <input type="text" id="myname" name="myname">
+            <span class="hint"></span>
+        </div>
+
+        <button type="submit">資料送出</button>
+    </form>
+
+    <script src="./vendors/jquery/jquery-3.7.1.min.js"></script>
+
+    <script>
+
+        $('#myform').on("submit", function (e) {
+
+            if ($("#myname").val() == "") {
+                e.preventDefault();
+                $("div.input_group").addClass("error");
+
+                $("span.hint").html("必填");
+            } else {
+                $("div.input_group").removeClass("error");
+            }
+
+        });
+
+    </script>
+
+</body>
+
+</html>

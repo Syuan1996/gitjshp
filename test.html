@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./css/test.css">
+
+</head>
+
+<body>
+    <h1>內容大標題1</h1>
+    <h1>內容大標題2</h1>
+    <h1>內容大標題3</h1>
+    <script src="./vendors/jquery/jquery-3.7.1.min.js"></script>
+
+
+    <script>
+
+        document.addEventListener("DOMContentLoaded", function () {
+            let h1_el = document.getElementsByTagName("h1");
+
+            // console.log(h1_el);
+
+            for (let i = 0; i < h1_el.length; i++) {
+                h1_el[i].addEventListener("click", function () {
+                    alert("點到h1了")
+                });
+            }
+
+        });
+
+
+        // $(function () {
+        //     $("h1").on("click", function () {
+        //         alert("klo2")
+        //     });
+
+        // })
+
+
+    </script>
+</body>
+
+</html>

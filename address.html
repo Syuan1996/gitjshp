@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/address.css">
+</head>
+
+<body>
+
+    <form class="my_form" action="#" method="#">
+
+        <div class="block">
+            <label>地址：</label>
+            <div class="input_group">
+                <div class="addr_block">
+                    <input type="text" id="zipcode" class="addr" readonly>
+
+                    <select id="city"></select>
+
+                    <select id="area"></select>
+                </div>
+
+            </div>
+        </div>
+
+    </form>
+
+    <script src="./vendors/jquery/jquery-3.7.1.min.js"></script>
+    <script src="js/address.js"></script>
+    <script>
+
+        function addr_init() {
+            $.each(addrData, function (index, item) {
+                // console.log(item);
+                let city_str = `
+                <option value="${item.city}">${item.city}</option>
+                `;
+                $('#city').append(city_str);
+
+                if (item.city == "臺北市") {
+                    area_init(item.area);
+                }
+            });
+
+        }
+
+        addr_init();
+
+        function area_init(areas) {
+            // console.log(areas);
+            $.each(areas, function (i, item) {
+                // console.log(item.zipcode);
+
+                let area_init = `
+                    <option value="${item.zipcode}">${item.name}</option>
+                `;
+                $('#area').append(area_init);
+
+                if (i == 0) {
+                    $("#zipcode").val(item.zipcode);
+                }
+
+            })
+        }
+
+        $('#area').on("change", function () {
+            // console.log($(this).val());
+
+            $("#zipcode").val($(this).val());
+
+        })
+
+        $('#city').on("change", function () {
+
+            $("#area").empty();
+
+            let city_name = $(this).val();
+            // console.log(city_name);
+            $.each(addrData, function (i, item) {
+                if (city_name == item.city) {
+                    area_init(item.area);
+                }
+
+            })
+
+        })
+
+    </script>
+
+</body>
+
+</html>

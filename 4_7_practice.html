@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        .title1 {
+            color: red;
+        }
+
+        .para {
+            font-weight: bold;
+            text-decoration: underline;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1 id="h1_title">這是標題</h1>
+    <button type="button" id="change_title">標題加上 title1 樣式</button>
+    <hr>
+
+    <p id="p1" class="title1">這是段落</p>
+    <button type="button" class="btn_para">段落移除 title1 樣式，然後加上 para 樣式</button>
+
+    <hr>
+
+    <a href="https://tw.yahoo.com" target="_blank" class="link">這是連結</a>
+    <button type="button" class="btn_link">將「這是連結」文字，改成「Yahoo! 網站」</button>
+
+    <hr>
+
+    <div>
+        項目名稱：<input type="text" id="item_add">
+    </div>
+
+    <ul class="list">
+        <li>項目一<button type="button" class="btn_del">移除</button></li>
+    </ul>
+
+    <script src="./vendors/jquery/jquery-3.7.1.min.js"></script>
+    <script>
+        "use strict"
+        $("#change_title").on("click", function () {
+            $("h1#h1_title").addClass("title1");
+        });
+
+        $("button.btn_para").on("click", function () {
+            $("#p1").removeClass("title1").addClass("para");
+        });
+
+        $(".btn_link").on("click", function () {
+            $("a.link").text("Yahoo")
+        });
+
+        $("#item_add").on("blur", function () {
+            // console.log("blur");
+            // console.log($(this).val());
+            // 新增項目
+            if ($(this).val() != "") {
+                $("ul.list").prepend(`<li>${$(this).val()}<button type="button" class="btn_del">移除</button></li>`);
+                $(this).val("");
+            }
+        });
+
+        // $("button.btn_del").on("click", function () {
+        //     $(this).closest("li").remove();
+        // })
+
+        $(document).on("click", "button.btn_del", function () {
+            $(this).closest("li").remove();
+
+        });
+
+    </script>
+
+</body>
+
+</html>

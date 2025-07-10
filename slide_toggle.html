@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/slide_toggle.css">
+</head>
+
+<body>
+
+    <ul class="list">
+
+        <li>
+            <a class="link_title" href="#">
+                <button type="button" class="switch_btn">
+                    <span class="-plus">+</span><span class="-minus">-</span>
+                </button>
+                Q1. 如何加入會員？
+            </a>
+            <div class="inner_block">
+                A1. 加入會員須經由書面方式加入會員須經由書面方式加入會員須經由書面方式加入會員須經由書面方式加入會員須經由書面方式
+            </div>
+
+        </li>
+
+        <li>
+            <a class="link_title" href="#">
+                <button type="button" class="switch_btn">
+                    <span class="-plus">+</span><span class="-minus">-</span>
+                </button>
+                Q2. 如何加入會員？
+            </a>
+            <div class="inner_block">
+                A2. 加入會員須經由書面方式加入會員須經由書面方式加入會員須經由書面方式加入會員須經由書面方式加入會員須經由書面方式
+            </div>
+
+        </li>
+    </ul>
+
+    <script src="./vendors/jquery/jquery-3.7.1.min.js"></script>
+
+    <script>
+        $(".link_title").on("click", function (e) {
+            e.preventDefault();
+            $(this).closest("li").toggleClass("-on");
+
+            $(this).closest("li").find("div.inner_block").slideToggle();
+
+        })
+
+    </script>
+</body>
+
+</html>

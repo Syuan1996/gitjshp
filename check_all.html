@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <input type="checkbox" id="check_all"><label for="check_all">全選</label>
+
+    <hr>
+    <input type="checkbox" class="item" id="option1"> <label for="option1">選項一</label>
+    <input type="checkbox" class="item" id="option2"> <label for="option2">選項二</label>
+    <input type="checkbox" class="item" id="option3"> <label for="option3">選項三</label>
+
+    <script src="./vendors/jquery/jquery-3.7.1.min.js"></script>
+    <script>
+        //1.針對#check_all做click事件綁定
+
+        // console.log(this);
+
+        $("#check_all").on("click", function () {
+            //console.log( this );
+            //console.log( $(this).prop("checked") );
+            // $("input.item").prop("checked", $(this).prop("checked"));
+            // console.log($('this').prop("checked"));
+            $('input.item').prop("checked", $(this).prop("checked"));
+
+        });
+
+        //2.針對選項(input.item)做clcik事件上的綁定
+
+        $("input.item").on("click", function () {
+            console.log($("input.item").length);
+
+            console.log($('input.item:checked').length);
+
+            // if ($("input.item").length === $("input.item:checked").length) {
+            //     $("#check_all").prop("checked", true);
+            // } else {
+            //     $("#check_all").prop("checked", false);
+            // }
+
+            $("#check_all").prop("checked", $("input.item:checked").length === $("input.item").length)
+
+        })
+
+    </script>
+
+
+</body>
+
+</html>
